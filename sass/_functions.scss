@@ -5,6 +5,8 @@ $awesome-max-width: 1200px !default;
 $awesome-float-direction: left !default;
 $awesome-column-count: 1 !default;
 $awesome-gutter-width: 20px !default;
+
+// Calculate size of grid box
 @function awesome-grid-box-size( $column-span: 1, $gutter-width:$awesome-gutter-width) {
   $column-width: 0;
 
@@ -21,7 +23,6 @@ $awesome-gutter-width: 20px !default;
   @return $gutter-width / 2;
 }
 @mixin clearfix {
-  //&{clear:both;}
   &:after, &:before {
     content: "";
     display: table;
@@ -38,7 +39,10 @@ $awesome-gutter-width: 20px !default;
 }
 
 @mixin awesome-nested-grid-container(){
-  @include clearfix;
+  margin: {
+    left: 0;
+    right: 0;
+  }
 }
 
 @mixin awesome-grid-item( $column-span, $column-position, $last: 'false' ) {
@@ -111,4 +115,17 @@ $awesome-gutter-width: 20px !default;
       margin-right: awesome-gutter-width();
       margin-left: awesome-gutter-width();
     }
+}
+@function awesome-direction-flip ( $dir ) {
+  @if $dir == left {
+    @return right;
+  }
+  @else if $dir == right {
+    @return left;
+  }
+  @else if $dir == none or $dir == both {
+    @return $dir;
+  }
+  @warn "Invalid direction passed to zen-direction-flip().";
+  @return both;
 }
