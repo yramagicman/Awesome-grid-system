@@ -7,7 +7,7 @@ $awesome-column-count: 1 !default;
 $awesome-gutter-width: 20px !default;
 
 // Calculate size of grid box
-@function awesome-grid-box-size( $column-span: 1, $gutter-width:$awesome-gutter-width) {
+@function awesome-grid-box-size( $column-span: 1, $gutter-width:$awesome-gutter-width ) {
   $column-width: 0;
 
   @if $awesome-column-count == 1 {
