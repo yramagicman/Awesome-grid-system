@@ -1,0 +1,114 @@
+@import "compass/typography/vertical_rhythm";
+@import "compass/css3";
+
+$awesome-max-width: 1200px !default;
+$awesome-float-direction: left !default;
+$awesome-column-count: 1 !default;
+$awesome-gutter-width: 20px !default;
+@function awesome-grid-box-size( $column-span: 1, $gutter-width:$awesome-gutter-width) {
+  $column-width: 0;
+
+  @if $awesome-column-count == 1 {
+    $column-width: 100% - percentage($gutter-width/$awesome-max-width);
+  }
+  @else {
+    $column-width: percentage($column-span/$awesome-column-count) - percentage($gutter-width/$awesome-max-width);
+  }
+  @return $column-width
+}
+@function awesome-gutter-width($gutter-width: $awesome-gutter-width){
+  $gutter-width: percentage($gutter-width/$awesome-max-width);
+  @return $gutter-width / 2;
+}
+@mixin clearfix {
+  //&{clear:both;}
+  &:after, &:before {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin awesome-grid-container( $top-bottom-margin: 0, $left-right-margin: auto) {
+  max-width: $awesome-max-width;
+  margin: $top-bottom-margin $left-right-margin;
+  overflow: hidden;
+  display: block;
+  @include clearfix;
+}
+
+@mixin awesome-nested-grid-container(){
+  @include clearfix;
+}
+
+@mixin awesome-grid-item( $column-span, $column-position, $last: 'false' ) {
+  display: block;
+  $float-direction: $awesome-float-direction;
+  float: $awesome-float-direction;
+  @if $float-direction =='left'{
+    @include _awesome_grid_margin_left($column-position, $last);
+  }
+  @else{
+    @include _awesome_grid_margin_right($column-position, $last);
+  }
+  @include _awesome_grid_width($column-span, $column-position, $last );
+}
+
+@mixin _awesome_grid_width( $column-span, $column-position, $last: 'false' ) {
+
+  @if $column-position == 1 {
+    width: awesome-grid-box-size($column-span) + awesome-gutter-width();
+  }
+  @else if $last == 'true' {
+    width: awesome-grid-box-size($column-span) + awesome-gutter-width();
+  }
+  @else {
+    width: awesome-grid-box-size($column-span);
+  }
+}
+
+@mixin _awesome_grid_margin_right( $column-position, $last: 'false' ) {
+    @if $column-position == 1 {
+      margin-left: awesome-gutter-width();
+      margin-right: 0;
+    }
+    @else if $last == 'true' {
+      margin-right: awesome-gutter-width();
+      margin-left: 0;
+    }
+    @else if $last == 'true' and $column-position != 1 {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    @else if $awesome-column-count == 1{
+      margin-right: 0;
+      margin-left: 0;
+    }
+    @else {
+      margin-right: awesome-gutter-width();
+      margin-left: awesome-gutter-width();
+    }
+}
+
+@mixin _awesome_grid_margin_left( $column-position, $last: 'false' ) {
+    @if $column-position == 1 {
+      margin-right: awesome-gutter-width();
+      margin-left: 0;
+    }
+    @else if $last == 'true' {
+      margin-left: awesome-gutter-width();
+      margin-right: 0;
+    }
+    @else if $last == 'true' and $column-position != 1 {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    @else if $awesome-column-count == 1{
+      margin-right: 0;
+      margin-left: 0;
+    }
+    @else {
+      margin-right: awesome-gutter-width();
+      margin-left: awesome-gutter-width();
+    }
+}
