@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 5, ../sass/screen.scss */
+/* line 10, ../sass/_functions.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -278,57 +278,62 @@ th {
   padding: 0;
 }
 
-/* line 14, ../sass/screen.scss */
+/* line 9, ../sass/screen.scss */
 .container {
   max-width: 1200px;
   margin: 10px auto;
   overflow: hidden;
   display: block;
+  text-align: left;
+  position: relative;
   border: 1px solid red;
+  width: 800px;
 }
-/* line 25, ../sass/_functions.scss */
+/* line 36, ../sass/_functions.scss */
 .container:after, .container:before {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 19, ../sass/screen.scss */
+/* line 15, ../sass/screen.scss */
 .grid1 {
   display: block;
   float: left;
-  margin-right: 0.83333%;
-  margin-left: 0;
-  width: 7.5%;
+  padding-left: 0.625%;
+  padding-right: 0.625%;
+  width: 8.33333%;
+  margin-left: -83.33333%;
   outline: 1px solid red;
 }
 
-/* line 24, ../sass/screen.scss */
+/* line 21, ../sass/screen.scss */
 .grid2 {
   display: block;
   float: left;
-  margin-right: 0.83333%;
-  margin-left: 0.83333%;
-  width: 31.66667%;
+  padding-left: 0.625%;
+  padding-right: 0.625%;
+  width: 16.66667%;
+  margin-left: 8.33333%;
   outline: 1px solid red;
 }
 
-/* line 29, ../sass/screen.scss */
+/* line 27, ../sass/screen.scss */
 .grid3 {
   display: block;
   float: left;
-  margin-right: 0.83333%;
-  margin-left: 0.83333%;
-  width: 15.0%;
+  padding-left: 0.625%;
+  padding-right: 0.625%;
+  width: 58.33333%;
   outline: 1px solid red;
 }
 
-/* line 34, ../sass/screen.scss */
+/* line 32, ../sass/screen.scss */
 .grid4 {
   display: block;
-  float: left;
-  margin-left: 0.83333%;
-  margin-right: 0;
-  width: 40.83333%;
+  float: right;
+  padding-left: 0.625%;
+  padding-right: 0.625%;
+  width: 16.66667%;
   outline: 1px solid red;
 }
