@@ -1,4 +1,4 @@
-/* Welcome to Compass.
+/* Welcome to Compass
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
@@ -9,27 +9,26 @@
 .container{
   @include awesome-grid-container(10px, auto);
   border: 1px solid red;
-  width: 800px;
 }
 $awesome-column-count: 12;
 .grid1{
-  @include awesome-grid-item(1, 1);
+  @include awesome-grid-item(2, 1);
   @include awesome-pull(10);
-  outline: 1px solid red;
+  background-color: #ccc;
 }
 
 .grid2{
-  @include awesome-grid-item(2, 2);
-  @include awesome-push(1);
-  outline: 1px solid red;
+  @include awesome-grid-item(3, 2);
+  @include awesome-push(2);
+  background-color: #f00;
 }
 
 .grid3{
-  @include awesome-grid-item(7, 3);
-  outline: 1px solid red;
+  @include awesome-grid-item(5, 3);
+  background-color: #0f0;
 }
 
 .grid4{
   @include awesome-grid-item(2, 4, right);
-  outline: 1px solid red;
+  background-color: #00f;
 }

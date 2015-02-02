@@ -1,4 +1,4 @@
-/* Welcome to Compass.
+/* Welcome to Compass
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
@@ -287,53 +287,52 @@ th {
   text-align: left;
   position: relative;
   border: 1px solid red;
-  width: 800px;
 }
-/* line 36, ../sass/_functions.scss */
+/* line 38, ../sass/_functions.scss */
 .container:after, .container:before {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 15, ../sass/screen.scss */
+/* line 14, ../sass/screen.scss */
 .grid1 {
-  display: block;
   float: left;
+  display: block;
   padding-left: 0.625%;
   padding-right: 0.625%;
-  width: 8.33333%;
+  width: 16.66667%;
   margin-left: -83.33333%;
-  outline: 1px solid red;
+  background-color: #ccc;
 }
 
-/* line 21, ../sass/screen.scss */
+/* line 20, ../sass/screen.scss */
 .grid2 {
-  display: block;
   float: left;
+  display: block;
   padding-left: 0.625%;
   padding-right: 0.625%;
-  width: 16.66667%;
-  margin-left: 8.33333%;
-  outline: 1px solid red;
+  width: 25%;
+  margin-left: 16.66667%;
+  background-color: #f00;
 }
 
-/* line 27, ../sass/screen.scss */
+/* line 26, ../sass/screen.scss */
 .grid3 {
-  display: block;
   float: left;
+  display: block;
   padding-left: 0.625%;
   padding-right: 0.625%;
-  width: 58.33333%;
-  outline: 1px solid red;
+  width: 41.66667%;
+  background-color: #0f0;
 }
 
-/* line 32, ../sass/screen.scss */
+/* line 31, ../sass/screen.scss */
 .grid4 {
-  display: block;
   float: right;
+  display: block;
   padding-left: 0.625%;
   padding-right: 0.625%;
   width: 16.66667%;
-  outline: 1px solid red;
+  background-color: #00f;
 }
