@@ -1,0 +1,20 @@
+$awesome-max-width: 1200px !default;
+$awesome-float-direction: left !default;
+$awesome-column-count: 1 !default;
+$awesome-gutter-width: 15px !default;
+$awesome-legacy-support: 'false' !default;
+
+@import "config.scss";
+
+@mixin awesome-border-box {
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+@if $awesome-legacy-support == 'false' {
+    @include awesome-border-box;
+}

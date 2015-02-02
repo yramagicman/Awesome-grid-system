@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 10, ../sass/_functions.scss */
+/* line 10, ../sass/_bootstrap.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -278,7 +278,14 @@ th {
   padding: 0;
 }
 
-/* line 9, ../sass/screen.scss */
+/* line 95, ../sass/_functions.scss */
+.grid1, .grid2, .grid3, .grid4 {
+  padding-left: 0.625%;
+  padding-right: 0.625%;
+  float: left;
+}
+
+/* line 11, ../sass/screen.scss */
 .container {
   max-width: 1200px;
   margin: 10px auto;
@@ -288,51 +295,33 @@ th {
   position: relative;
   border: 1px solid red;
 }
-/* line 38, ../sass/_functions.scss */
+/* line 26, ../sass/_functions.scss */
 .container:after, .container:before {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 14, ../sass/screen.scss */
+/* line 16, ../sass/screen.scss */
 .grid1 {
-  float: left;
-  display: block;
-  padding-left: 0.625%;
-  padding-right: 0.625%;
-  width: 16.66667%;
-  margin-left: -83.33333%;
+  width: 25%;
   background-color: #ccc;
 }
 
-/* line 20, ../sass/screen.scss */
+/* line 22, ../sass/screen.scss */
 .grid2 {
-  float: left;
-  display: block;
-  padding-left: 0.625%;
-  padding-right: 0.625%;
-  width: 25%;
-  margin-left: 16.66667%;
+  width: 16.66667%;
   background-color: #f00;
 }
 
-/* line 26, ../sass/screen.scss */
+/* line 28, ../sass/screen.scss */
 .grid3 {
-  float: left;
-  display: block;
-  padding-left: 0.625%;
-  padding-right: 0.625%;
   width: 41.66667%;
   background-color: #0f0;
 }
 
-/* line 31, ../sass/screen.scss */
+/* line 33, ../sass/screen.scss */
 .grid4 {
-  float: right;
-  display: block;
-  padding-left: 0.625%;
-  padding-right: 0.625%;
   width: 16.66667%;
   background-color: #00f;
 }

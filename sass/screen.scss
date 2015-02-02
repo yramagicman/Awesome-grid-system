@@ -4,22 +4,24 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 
-@import "functions.scss";
+
+@import "bootstrap.scss";
 @import "normalize";
+@import "functions.scss";
 .container{
   @include awesome-grid-container(10px, auto);
   border: 1px solid red;
 }
 $awesome-column-count: 12;
 .grid1{
-  @include awesome-grid-item(2, 1);
-  @include awesome-pull(10);
+  @include awesome-grid-item(3, 1);
+  //@include awesome-pull(9.999);
   background-color: #ccc;
 }
 
 .grid2{
-  @include awesome-grid-item(3, 2);
-  @include awesome-push(2);
+  @include awesome-grid-item(2, 2);
+  //@include awesome-push(3);
   background-color: #f00;
 }
 
@@ -29,6 +31,6 @@ $awesome-column-count: 12;
 }
 
 .grid4{
-  @include awesome-grid-item(2, 4, right);
+  @include awesome-grid-item(2, 4);
   background-color: #00f;
 }
