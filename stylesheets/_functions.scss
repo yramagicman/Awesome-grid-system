@@ -1,0 +1,112 @@
+@import "compass/typography/vertical_rhythm";
+@import "compass/css3";
+
+// Calculate size of grid box
+@function awesome-grid-box-size( $column-span: 1, $gutter-width:$awesome-gutter-width ) {
+  $column-width: 0;
+  @if $awesome-column-count == 1 {
+    $column-width: 100%;
+  }
+  @else {
+    @if $awesome-legacy-support == 'true'  {
+      $column-width: percentage($column-span/$awesome-column-count) - ( 2 * awesome-gutter-width() );
+    }
+    @else{
+      $column-width: percentage($column-span/$awesome-column-count);
+    }
+  }
+  @return $column-width
+}
+
+@function awesome-gutter-width($gutter-width: $awesome-gutter-width){
+  $gutter-width: percentage($gutter-width/$awesome-max-width);
+  @return $gutter-width / 2;
+}
+@mixin clearfix {
+  &:after, &:before {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin awesome-grid-container( $top-bottom-padding: 0, $left-right-padding: auto) {
+  max-width: $awesome-max-width;
+  margin: $top-bottom-padding $left-right-padding;
+  overflow: hidden;
+  display: block;
+  text-align: $awesome-float-direction;
+  position: relative;
+  @include clearfix;
+}
+
+@mixin awesome-nested-grid-container(){
+  @include clearfix;
+  padding: {
+    left: 0;
+    right: 0;
+  }
+}
+
+@mixin _awesome_grid_width( $column-span, $column-position ) {
+    width: awesome-grid-box-size($column-span);
+}
+
+@mixin _awesome_grid_padding() {
+      padding-left: awesome-gutter-width();
+      padding-right: awesome-gutter-width();
+}
+
+@function awesome-direction-flip ( $dir ) {
+  @if $dir == left {
+    @return right;
+  }
+  @else if $dir == right {
+    @return left;
+  }
+  @else if $dir == none or $dir == both {
+    @return $dir;
+  }
+  @warn "Invalid direction passed to zen-direction-flip().";
+  @return both;
+}
+
+
+@mixin awesome-pull($distance) {
+  @if $awesome-column-count > 1 {
+    @if $awesome-legacy-support == 'true'  {
+    margin-left: -1 * (awesome-grid-box-size($distance) + (2 * awesome-gutter-width()));
+    }
+    @else {
+    margin-left: -1 * awesome-grid-box-size($distance);
+    }
+  }
+}
+
+@mixin awesome-push($distance) {
+  @if $awesome-column-count > 1 {
+    @if $awesome-legacy-support == 'true'  {
+      margin-left:  awesome-grid-box-size($distance) + (2 * awesome-gutter-width());
+    }
+    @else{
+      margin-left:  awesome-grid-box-size($distance);
+    }
+  }
+}
+%baseselector {
+  @include _awesome_grid_padding();
+  float: left;
+}
+
+@mixin awesome-grid-flow-item( $column-span, $column-position, $float: $awesome-float-direction ) {
+  @extend %baseselector;
+  @include _awesome_grid_width($column-span, $column-position );
+}
+
+@mixin awesome-grid-item( $column-span, $column-position, $float: $awesome-float-direction ) {
+  @extend %baseselector;
+  @if $float != $awesome-float-direction {
+      float: $float;
+  }
+  @include awesome-grid-flow-item( $column-span, $column-position, $float )
+}
