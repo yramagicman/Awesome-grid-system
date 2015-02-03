@@ -42,6 +42,8 @@
 
 @mixin awesome-nested-grid-container(){
   @include clearfix;
+  overflow: hidden;
+  width: 100%;
   padding: {
     left: 0;
     right: 0;
@@ -95,18 +97,15 @@
 }
 %baseselector {
   @include _awesome_grid_padding();
-  float: left;
 }
 
 @mixin awesome-grid-flow-item( $column-span, $column-position, $float: $awesome-float-direction ) {
-  @extend %baseselector;
+  //@extend %baseselector;
+  @include _awesome_grid_padding();
   @include _awesome_grid_width($column-span, $column-position );
 }
 
 @mixin awesome-grid-item( $column-span, $column-position, $float: $awesome-float-direction ) {
-  @extend %baseselector;
-  @if $float != $awesome-float-direction {
-      float: $float;
-  }
+  float: $float;
   @include awesome-grid-flow-item( $column-span, $column-position, $float )
 }
